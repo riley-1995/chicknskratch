@@ -22,9 +22,11 @@ var hand, finger, position;
 var r = 0;
 
 function preload(){
-	if (r<8){
-		loadSound(str('audio/chickn'+r+'.m4a'));
-		r++;
+	function song(r){
+		if (r<8){
+			return loadSound(str('audio/chickn'+r+'.m4a'));
+			r++;
+		}
 	}
 }
 
@@ -82,7 +84,7 @@ function draw() {
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
-	music = loadSound(filepath);
+	music = song(n);
 	music.play();
 	music.setVolume(volume);
 	print(volume);
