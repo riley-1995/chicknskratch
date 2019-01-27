@@ -1,0 +1,36 @@
+<html>
+	<head>
+
+	</head>
+	<body>
+		<h1>:)</h1>
+		<div id=output></div>
+		<audio id="mySong" controls autoplay loop>
+			<source src="song.mp3">
+		</audio>
+
+	</body>
+	<script src="node_modules/leapjs/leap-0.6.4.js"></script>
+	<script type="text/javascript">
+
+		var myMusic = document.getElementById("mySong")
+
+		var options = {enableGestures: true};
+		var volume = 0.5;
+		var printString = "";
+		var output = document.getElementById('output');
+
+		Leap.loop(options,function(frame) {
+
+			for (var i = 0, len = frame.hands.length; i < len; i++) {
+				hand = frame.hands[i];
+				printString = hand.grabStrength;
+				volume = hand.grabStrength;
+				myMusic.volume = volume;
+			}
+
+			output.innerHTML = printString;
+		});
+
+	</script>
+</html>
