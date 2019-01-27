@@ -71,7 +71,7 @@ function draw() {
 	scribble.scribbleLine(originX, originY, endX, originY );
 	scribble.scribbleLine(originX, originY-windowHeight/2, originX, originY);
 	scribble.scribbleRect(originX,originY,15,15);
-	n = floor(map(y,0,500,0,8));
+	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
 	song = loadSound(filepath);
