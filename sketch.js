@@ -6,7 +6,7 @@ var originY = windowHeight/2;
 var pi = 3.1415926;
 var img;
 var scale;
-var pitch = 250;
+var n = 250;
 
 var myMusic;
 
