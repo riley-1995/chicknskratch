@@ -19,16 +19,16 @@ var output = document.getElementById('output');
 var options = {enableGestures: true};
 var frameString = "", handString = "", fingerString = "";
 var hand, finger, position;
+var r = 0;
 
 function preload(){
-	var song[0] = loadSound('audio/chickn0.m4a');
-	var song[1] = loadSound('audio/chickn1.m4a');
-	var song[2] = loadSound('audio/chickn2.m4a');
-	var song[3] = loadSound('audio/chickn3.m4a');
-	var song[4] = loadSound('audio/chickn4.m4a');
-	var song[5] = loadSound('audio/chickn5.m4a');
-	var song[6] = loadSound('audio/chickn6.m4a');
-	var song[7] = loadSound('audio/chickn6.m4a');
+	function song(r){
+		if (r<8){
+			song[r]=loadSound(str('audio/chickn'+r+'.m4a'));
+			return song[r];
+			r++
+		}
+	}
 }
 
 function setup() {
@@ -84,8 +84,8 @@ function draw() {
 	scribble.scribbleRect(originX,originY,15,15);
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
-	music = song[n];
-	print(str(music));
+	print(filepath);
+	music = song(n);
 	if (volume>0.5 and count ==0){
 		music.play();
 		count = count+1;
