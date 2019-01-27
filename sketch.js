@@ -8,6 +8,7 @@ var img;
 var scale;
 var n = 250;
 var count = 0;
+var song0, song1, song2, song3, song4, song5, song6, song7;
 
 var myMusic;
 
@@ -22,12 +23,14 @@ var hand, finger, position;
 var r = 0;
 
 function preload(){
-	function song(r){
-		if (r<8){
-			return loadSound(str('audio/chickn'+r+'.m4a'));
-			r++;
-		}
-	}
+	song0 = loadSound('audio/chickn0.m4a');
+	song1 = loadSound('audio/chickn1.m4a');
+	song2 = loadSound('audio/chickn2.m4a');
+	song3 = loadSound('audio/chickn3.m4a');
+	song4 = loadSound('audio/chickn4.m4a');
+	song5 = loadSound('audio/chickn5.m4a');
+	song6 = loadSound('audio/chickn6.m4a');
+	song7 = loadSound('audio/chickn7.m4a');
 }
 
 function setup() {
@@ -84,7 +87,42 @@ function draw() {
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
-	music = song(n);
+
+	switch(n) {
+		case 7:
+			return song7;
+		break;
+
+		case 6:
+			return song6;
+		break;
+
+		case 5:
+			return song5;
+		break;
+
+		case 4:
+			return song4;
+		break;
+
+		case 3:
+			return song3;
+		break;
+
+		case 2:
+			return song2;
+		break;
+
+		case 1:
+			return song1;
+		break;
+
+		case 0:
+			return song0;
+		break;
+	}
+
+	music = switch(n);
 	music.play();
 	music.setVolume(volume);
 	print(volume);
