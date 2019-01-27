@@ -86,7 +86,7 @@ function draw() {
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
 	music = song(n);
-	if (volume>0.5 and count ==0){
+	if (volume>0.5 && count ==0){
 		music.play();
 		count = count+1;
 	}
