@@ -25,11 +25,9 @@ function setup() {
 Leap.loop(options,function(frame) {
 	for (var i = 0, len = frame.hands.length; i < len; i++) {
 		hand = frame.hands[i];
-		printString = hand.grabStrength;
 		volume = hand.grabStrength;
 		myMusic.volume = volume;
 	}
-	output.innerHTML = printString;
 });
 
 function draw() {
