@@ -7,6 +7,7 @@ var pi = 3.1415926;
 var img;
 var scale;
 var n = 250;
+var count = 0;
 
 var myMusic;
 
@@ -74,8 +75,9 @@ function draw() {
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
 	song = loadSound(filepath);
-	if (volume>0.5){
+	if (volume>0.5 and count ==0){
 		song.play();
+		count = count+1;
 	}
 	song.setVolume(volume);
 	print(volume);
