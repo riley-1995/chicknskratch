@@ -48,7 +48,7 @@ function draw() {
 	var x = mouseX;
 	//var y = abs((mouseY-originY)/100);
 	var m = map(volume,0,1,0,2);
-	var endX = windowWidth/2;
+	var endX = windowWidth*3/5;
 	// create an instance of scribble and set a few parameters
 	scribble.bowing = 0.1;
 	scribble.roughness = 3;
@@ -57,7 +57,7 @@ function draw() {
 	scribble.scribbleLine(originX, originY, endX, originY );
 	scribble.scribbleLine(originX, originY-windowHeight/2, originX, originY);
 	scribble.scribbleRect(originX,originY,15,15);
-	image(img, mouseX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
+	image(img, endX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
 	for (let i=1; i<5; i+=4){
 		scribble.scribbleCurve(originX+(lenOfCurve*(i-1)), originY, originX+lenOfCurve*i, originY-(2*lenOfCurve*m/pi), originX+(lenOfCurve*(i-1))+(0.3642*lenOfCurve), originY, originX+(lenOfCurve*(i-1))+lenOfCurve*0.6358, originY-(2*lenOfCurve*m/pi));
 		scribble.scribbleCurve(originX+lenOfCurve*i, originY-(2*lenOfCurve*m/pi), originX+(lenOfCurve*(i+1)), originY, originX+lenOfCurve*i+(0.3642*lenOfCurve),originY-(2*lenOfCurve*m/pi),originX+(lenOfCurve*(i+1))-(0.3642*lenOfCurve),originY);
