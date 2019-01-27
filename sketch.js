@@ -22,7 +22,7 @@ function draw() {
 	var displacementChickenX=random(-2,2);
 	var displacementChickenY=random(-2,2);
 	var x = mouseX;
-	var y = mouseY;
+	var y = (mouseY-originY)/100;
 	var endX = mouseX;
 	// create an instance of scribble and set a few parameters
 	scribble.bowing = 0.1;
@@ -34,10 +34,10 @@ function draw() {
 	scribble.scribbleRect(originX,originY,15,15);
 	image(img, mouseX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
 	for (let i=1; i<5; i+=4){
-		scribble.scribbleCurve(originX+(lenOfCurve*(i-1)), originY, originX+lenOfCurve*i, originY-(2*lenOfCurve/pi), originX+(lenOfCurve*(i-1))+(0.3642*lenOfCurve), originY, originX+(lenOfCurve*(i-1))+lenOfCurve*0.6358, originY-(2*lenOfCurve/pi));
-		scribble.scribbleCurve(originX+lenOfCurve*i, originY-(2*lenOfCurve/pi), originX+(lenOfCurve*(i+1)), originY, originX+lenOfCurve*i+(0.3642*lenOfCurve),originY-(2*lenOfCurve/pi),originX+(lenOfCurve*(i+1))-(0.3642*lenOfCurve),originY);
-		scribble.scribbleCurve(originX+(lenOfCurve*(i+1)), originY, originX+(lenOfCurve*(i+2)), originY+(2*lenOfCurve/pi), originX+(lenOfCurve*(i+1))+(0.3642*lenOfCurve), originY, originX+(lenOfCurve*(i+2))-(0.3642*lenOfCurve),originY+(2*lenOfCurve/pi));
-		scribble.scribbleCurve(originX+(lenOfCurve*(i+2)), originY+(2*lenOfCurve/pi),originX+(lenOfCurve*(i+3)),originY,originX+(lenOfCurve*(i+2))+(0.3642*lenOfCurve),originY+(2*lenOfCurve/pi),originX+(lenOfCurve*(i+3))-(0.3642*lenOfCurve),originY);
+		scribble.scribbleCurve(originX+(lenOfCurve*(i-1)), originY, originX+lenOfCurve*i, originY-(2*lenOfCurve*y/pi), originX+(lenOfCurve*(i-1))+(0.3642*lenOfCurve), originY, originX+(lenOfCurve*(i-1))+lenOfCurve*0.6358, originY-(2*lenOfCurve*y/pi));
+		scribble.scribbleCurve(originX+lenOfCurve*i, originY-(2*lenOfCurve*y/pi), originX+(lenOfCurve*(i+1)), originY, originX+lenOfCurve*i+(0.3642*lenOfCurve),originY-(2*lenOfCurve*y/pi),originX+(lenOfCurve*(i+1))-(0.3642*lenOfCurve),originY);
+		scribble.scribbleCurve(originX+(lenOfCurve*(i+1)), originY, originX+(lenOfCurve*(i+2)), originY+(2*lenOfCurve*y/pi), originX+(lenOfCurve*(i+1))+(0.3642*lenOfCurve), originY, originX+(lenOfCurve*(i+2))-(0.3642*lenOfCurve),originY+(2*lenOfCurve*y/pi));
+		scribble.scribbleCurve(originX+(lenOfCurve*(i+2)), originY+(2*lenOfCurve*y/pi),originX+(lenOfCurve*(i+3)),originY,originX+(lenOfCurve*(i+2))+(0.3642*lenOfCurve),originY+(2*lenOfCurve*y/pi),originX+(lenOfCurve*(i+3))-(0.3642*lenOfCurve),originY);
 	}
 	//(0.3642*2*lenOfCurve/pi)
 }
