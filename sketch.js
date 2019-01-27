@@ -24,8 +24,8 @@ var r = 0;
 function preload(){
 	function song(r){
 		if (r<8){
-			song[r]=loadSound(str('audio/chickn'+r+'.m4a'));
-			return song[r];
+			song(r)=loadSound(str('audio/chickn'+r+'.m4a'));
+			return song(r);
 			r++
 		}
 	}
