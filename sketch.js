@@ -38,7 +38,8 @@ function draw() {
 	var displacementChickenX=random(-2,2);
 	var displacementChickenY=random(-2,2);
 	var x = mouseX;
-	var y = abs((mouseY-originY)/100);
+	//var y = abs((mouseY-originY)/100);
+	var y = map(volume,0,1,1,3);
 	var endX = mouseX;
 	// create an instance of scribble and set a few parameters
 	scribble.bowing = 0.1;
