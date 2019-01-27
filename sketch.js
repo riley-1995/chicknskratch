@@ -6,6 +6,7 @@ var originY = windowHeight/2;
 var pi = 3.1415926;
 var img;
 var scale;
+var pitch = 2;
 
 var myMusic;
 
@@ -13,20 +14,21 @@ var options = {enableGestures: true};
 var volume = 0.5;
 var printString = "";
 var output = document.getElementById('output');
+
 function setup() {
 	var myCanvas = createCanvas(windowWidth, windowHeight);
 	myCanvas.parent("shake");
 	frameRate(20);
 	img = loadImage('png/chicken1betterlineweight.png');
 	scale = 5;
-	myMusic = document.getElementById("mySong")
+	//myMusic = document.getElementById("mySong")
 }
 
 Leap.loop(options,function(frame) {
 	for (var i = 0, len = frame.hands.length; i < len; i++) {
 		hand = frame.hands[i];
 		volume = hand.grabStrength;
-		myMusic.volume = volume;
+		//myMusic.volume = volume;
 	}
 });
 
@@ -49,6 +51,11 @@ function draw() {
 	scribble.scribbleLine(originX, originY, endX, originY );
 	scribble.scribbleLine(originX, originY-windowHeight/2, originX, originY);
 	scribble.scribbleRect(originX,originY,15,15);
+	n = floor(map(pitch,0,1,0,8));
+	filepath = str('audio/chickn'+n+'.mp3');
+	print(filepath);
+	song = loadSound(filepath);
+	song.setVolume(volume);
 	print(volume);
 	image(img, mouseX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
 	for (let i=1; i<5; i+=4){
