@@ -8,6 +8,7 @@ var img;
 var scale;
 var n = 250;
 var count = 0;
+var music
 var song0, song1, song2, song3, song4, song5, song6, song7;
 
 var myMusic;
@@ -123,7 +124,7 @@ function draw() {
 		}
 	}
 
-	music = switch(n);
+	music = selectSong(n);
 	music.play();
 	music.setVolume(volume);
 	print(volume);
