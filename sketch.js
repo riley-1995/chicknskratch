@@ -7,7 +7,7 @@ var pi = 3.1415926;
 var img;
 var scale;
 
-var myMusic = document.getElementById("mySong")
+var myMusic;
 
 var options = {enableGestures: true};
 var volume = 0.5;
@@ -19,6 +19,7 @@ function setup() {
 	frameRate(20);
 	img = loadImage('png/chicken1betterlineweight.png');
 	scale = 5;
+	myMusic = loadSound('audio/song.mp3');
 }
 
 Leap.loop(options,function(frame) {
