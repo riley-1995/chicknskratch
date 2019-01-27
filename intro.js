@@ -21,6 +21,6 @@ function draw() {
 	stroke(0);
 	textFont(font);
 	textSize(30);
-	text("move left hand to change amplitude, right hand for pitch",0, windowHeight/3);
+	text("move left hand to change amplitude",0, windowHeight/3);
 }
 
