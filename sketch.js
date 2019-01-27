@@ -84,8 +84,8 @@ function draw() {
 	scribble.scribbleRect(originX,originY,15,15);
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
-	print(filepath);
 	music = song[n];
+	print(str(music));
 	if (volume>0.5 and count ==0){
 		music.play();
 		count = count+1;
