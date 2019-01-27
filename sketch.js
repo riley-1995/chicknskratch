@@ -6,6 +6,13 @@ var originY = windowHeight/2;
 var pi = 3.1415926;
 var img;
 var scale;
+
+var myMusic = document.getElementById("mySong")
+
+var options = {enableGestures: true};
+var volume = 0.5;
+var printString = "";
+var output = document.getElementById('output');
 function setup() {
 	var myCanvas = createCanvas(windowWidth, windowHeight);
 	myCanvas.parent("shake");
@@ -14,7 +21,18 @@ function setup() {
 	scale = 5;
 }
 
+Leap.loop(options,function(frame) {
+	for (var i = 0, len = frame.hands.length; i < len; i++) {
+		hand = frame.hands[i];
+		printString = hand.grabStrength;
+		volume = hand.grabStrength;
+		myMusic.volume = volume;
+	}
+	output.innerHTML = printString;
+});
+
 function draw() {
+
 	background(255);
 	stroke(0);
 	strokeWeight(1);
@@ -32,6 +50,7 @@ function draw() {
 	scribble.scribbleLine(originX, originY, endX, originY );
 	scribble.scribbleLine(originX, originY-windowHeight/2, originX, originY);
 	scribble.scribbleRect(originX,originY,15,15);
+	print(volume);
 	image(img, mouseX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
 	for (let i=1; i<5; i+=4){
 		scribble.scribbleCurve(originX+(lenOfCurve*(i-1)), originY, originX+lenOfCurve*i, originY-(2*lenOfCurve*y/pi), originX+(lenOfCurve*(i-1))+(0.3642*lenOfCurve), originY, originX+(lenOfCurve*(i-1))+lenOfCurve*0.6358, originY-(2*lenOfCurve*y/pi));
