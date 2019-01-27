@@ -87,39 +87,40 @@ function draw() {
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
+	function selectSong(n){
+		switch(n) {
+			case 7:
+				return song7;
+			break;
 
-	switch(n) {
-		case 7:
-			return song7;
-		break;
+			case 6:
+				return song6;
+			break;
 
-		case 6:
-			return song6;
-		break;
+			case 5:
+				return song5;
+			break;
 
-		case 5:
-			return song5;
-		break;
+			case 4:
+				return song4;
+			break;
 
-		case 4:
-			return song4;
-		break;
+			case 3:
+				return song3;
+			break;
 
-		case 3:
-			return song3;
-		break;
+			case 2:
+				return song2;
+			break;
 
-		case 2:
-			return song2;
-		break;
+			case 1:
+				return song1;
+			break;
 
-		case 1:
-			return song1;
-		break;
-
-		case 0:
-			return song0;
-		break;
+			case 0:
+				return song0;
+			break;
+		}
 	}
 
 	music = switch(n);
