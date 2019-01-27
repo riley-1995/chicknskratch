@@ -21,14 +21,14 @@ var frameString = "", handString = "", fingerString = "";
 var hand, finger, position;
 
 function preload(){
-	song[0] = loadSound(audio/chickn0.m4a);
-	song[1] = loadSound(audio/chickn1.m4a);
-	song[2] = loadSound(audio/chickn2.m4a);
-	song[3] = loadSound(audio/chickn3.m4a);
-	song[4] = loadSound(audio/chickn4.m4a);
-	song[5] = loadSound(audio/chickn5.m4a);
-	song[6] = loadSound(audio/chickn6.m4a);
-	song[7] = loadSound(audio/chickn6.m4a);
+	var song[0] = loadSound('audio/chickn0.m4a');
+	var song[1] = loadSound('audio/chickn1.m4a');
+	var song[2] = loadSound('audio/chickn2.m4a');
+	var song[3] = loadSound('audio/chickn3.m4a');
+	var song[4] = loadSound('audio/chickn4.m4a');
+	var song[5] = loadSound('audio/chickn5.m4a');
+	var song[6] = loadSound('audio/chickn6.m4a');
+	var song[7] = loadSound('audio/chickn6.m4a');
 }
 
 function setup() {
@@ -85,12 +85,12 @@ function draw() {
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
-	song = song[n];
+	music = song[n];
 	if (volume>0.5 and count ==0){
-		song.play();
+		music.play();
 		count = count+1;
 	}
-	song.setVolume(volume);
+	music.setVolume(volume);
 	print(volume);
 	print(y);
 	image(img, mouseX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
