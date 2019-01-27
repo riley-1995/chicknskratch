@@ -6,7 +6,7 @@ var originY = windowHeight/2;
 var pi = 3.1415926;
 var img;
 var scale;
-var pitch = 300;
+var pitch = 250;
 
 var myMusic;
 
@@ -18,7 +18,7 @@ var output = document.getElementById('output');
 function setup() {
 	var myCanvas = createCanvas(windowWidth, windowHeight);
 	myCanvas.parent("shake");
-	frameRate(20);
+	frameRate(30);
 	img = loadImage('png/chicken1betterlineweight.png');
 	scale = 5;
 	//myMusic = document.getElementById("mySong")
@@ -55,6 +55,7 @@ function draw() {
 	filepath = str('audio/chickn'+n+'.mp3');
 	print(filepath);
 	song = loadSound(filepath);
+	song.play();
 	song.setVolume(volume);
 	print(volume);
 	image(img, mouseX-img.width/(2*scale)+displacementChickenX, originY-img.height/(scale*2)+displacementChickenY, img.width/scale, img.height/scale);
