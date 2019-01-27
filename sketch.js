@@ -6,7 +6,7 @@ var originY = windowHeight/2;
 var pi = 3.1415926;
 var img;
 var scale;
-var pitch = 2;
+var pitch = 300;
 
 var myMusic;
 
@@ -42,7 +42,7 @@ function draw() {
 	var x = mouseX;
 	//var y = abs((mouseY-originY)/100);
 	var y = map(volume,0,1,0,2);
-	var endX = map(pitch,0,1,originX,windowWidth*14/15);
+	var endX = map(pitch,0,500,originX,windowWidth*14/15);
 	// create an instance of scribble and set a few parameters
 	scribble.bowing = 0.1;
 	scribble.roughness = 3;
@@ -51,7 +51,7 @@ function draw() {
 	scribble.scribbleLine(originX, originY, endX, originY );
 	scribble.scribbleLine(originX, originY-windowHeight/2, originX, originY);
 	scribble.scribbleRect(originX,originY,15,15);
-	n = floor(map(pitch,0,1,0,8));
+	n = floor(map(pitch,0,500,0,8));
 	filepath = str('audio/chickn'+n+'.mp3');
 	print(filepath);
 	song = loadSound(filepath);
