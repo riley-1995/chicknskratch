@@ -19,7 +19,7 @@ function setup() {
 	frameRate(20);
 	img = loadImage('png/chicken1betterlineweight.png');
 	scale = 5;
-	myMusic = loadSound('audio/song.mp3');
+	myMusic = document.getElementById("mySong")
 }
 
 Leap.loop(options,function(frame) {
@@ -33,7 +33,6 @@ Leap.loop(options,function(frame) {
 });
 
 function draw() {
-
 	background(255);
 	stroke(0);
 	strokeWeight(1);
