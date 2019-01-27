@@ -21,6 +21,10 @@ function draw() {
 	stroke(0);
 	textFont(font);
 	textSize(30);
-	text("Angela, Jaya, Riley, Yichen",windowWidth/10, windowHeight/3);
+	text("We created an instrument that uses finger positions from \n
+	     Leap Motion to determine the volume of the Chicken Song, as \n
+	     well as a live visualization. The right hand controls the \n
+	     volume of the sound according to pinch strength, the spread \n
+	     between thumb and other fingers.",windowWidth/10, windowHeight/3);
 }
 
