@@ -47,7 +47,9 @@ Leap.loop(options,function(frame) {
 }
 });
 
-
+// function startMusic () {
+// 	myMusic.
+// }
 
 function draw() {
 	background(255);
@@ -72,7 +74,9 @@ function draw() {
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
 	song = loadSound(filepath);
-	song.play();
+	if (volume>0.5){
+		song.play();
+	}
 	song.setVolume(volume);
 	print(volume);
 	print(y);
