@@ -20,6 +20,17 @@ var options = {enableGestures: true};
 var frameString = "", handString = "", fingerString = "";
 var hand, finger, position;
 
+function preload(){
+	song[0] = loadSound(audio/chickn0.m4a);
+	song[1] = loadSound(audio/chickn1.m4a);
+	song[2] = loadSound(audio/chickn2.m4a);
+	song[3] = loadSound(audio/chickn3.m4a);
+	song[4] = loadSound(audio/chickn4.m4a);
+	song[5] = loadSound(audio/chickn5.m4a);
+	song[6] = loadSound(audio/chickn6.m4a);
+	song[7] = loadSound(audio/chickn6.m4a);
+}
+
 function setup() {
 	var myCanvas = createCanvas(windowWidth, windowHeight);
 	myCanvas.parent("shake");
@@ -74,7 +85,7 @@ function draw() {
 	n = str(floor(map(y,0,500,0,8)));
 	filepath = str('audio/chickn'+n+'.m4a');
 	print(filepath);
-	song = loadSound(filepath);
+	song = song[n];
 	if (volume>0.5 and count ==0){
 		song.play();
 		count = count+1;
