@@ -48,7 +48,7 @@ function draw() {
 	var x = mouseX;
 	//var y = abs((mouseY-originY)/100);
 	var m = map(volume,0,1,0,2);
-	var endX = windowWidth*13/15;
+	var endX = windowWidth*2/3;
 	// create an instance of scribble and set a few parameters
 	scribble.bowing = 0.1;
 	scribble.roughness = 3;
