@@ -26,17 +26,17 @@ function setup() {
 	frameRate(30);
 	img = loadImage('png/chicken1betterlineweight.png');
 	scale = 5;
-	myMusic = document.getElementById("mySong")
+	myMusic = document.getElementById("mySong");
 }
 
-Leap.loop(options,function(frame) {
+// Leap.loop(options,function(frame) {
 	
-	for (var i = 0, len = frame.hands.length; i < len; i++) {
-		hand = frame.hands[i];
-		volume = hand.grabStrength;
-		myMusic.volume = volume;
-	}
-});
+// 	for (var i = 0, len = frame.hands.length; i < len; i++) {
+// 		hand = frame.hands[i];
+// 		volume = hand.grabStrength;
+// 		myMusic.volume = volume;
+// 	}
+// });
 
 function draw() {
 	background(255);
@@ -47,13 +47,16 @@ function draw() {
 	var displacementChickenY=random(-2,2);
 	var x = mouseX;
 	//var y = abs((mouseY-originY)/100);
-	var m = map(volume,0,1,0,2);
+// 	var m = map(volume,0,1,0,2);
+	var m = map((mouseY-originY),0,windowHeight/2,0,2);
 	var endX = windowWidth*3/5;
 	// create an instance of scribble and set a few parameters
 	scribble.bowing = 0.1;
 	scribble.roughness = 3;
 	// draws x, y axis
 	var lenOfCurve= (endX-originX)/5;
+	myMusic.play();
+	myMusic.amp(m/2);
 	scribble.scribbleLine(originX, originY, endX, originY );
 	scribble.scribbleLine(originX, originY-windowHeight/2, originX, originY);
 	scribble.scribbleRect(originX,originY,15,15);
